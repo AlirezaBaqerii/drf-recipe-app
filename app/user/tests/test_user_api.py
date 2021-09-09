@@ -83,8 +83,6 @@ class PublicUserApiTests(TestCase):
             'password': 'YouShallNotPass',
         }
         res = self.client.post(TOKEN_URL, payload)
-        print(res.data)
-        print(res.status_code)
         self.assertNotIn('token', res.data)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -95,7 +93,7 @@ class PublicUserApiTests(TestCase):
             'password': 'dark321',
         }
         res = self.client.post(TOKEN_URL, payload)
- 
+
         self.assertNotIn('token', res.data)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
